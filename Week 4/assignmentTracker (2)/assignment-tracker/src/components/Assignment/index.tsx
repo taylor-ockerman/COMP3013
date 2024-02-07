@@ -22,7 +22,7 @@ export function Assignment({ title, setAssignments, assignments, completed, inde
       <p className={completed ? styles.textCompleted : ""}>{title}</p>
 
       <button className={styles.deleteButton} onClick={() => {
-        //a is unused so i can access the index. better way to remove the correct item from the array?
+        //a is unused, but lets me access index "i". better way to remove the correct item from the array?
         setAssignments(assignments.filter((a: any, i: any) => i !== index));
       }}>
         <TbTrash size={20} />

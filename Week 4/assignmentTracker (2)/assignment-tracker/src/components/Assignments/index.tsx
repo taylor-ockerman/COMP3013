@@ -1,15 +1,13 @@
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
-import { useState } from 'react'
 
 function countCompleted({ assignments }: any) {
   let count = 0;
-  { assignments?.map((assignment: any) => assignment.completed ? count++ : count = count) };
+  assignments?.map((a: any) => a.completed ? count++ : count = count);
   return count;
 }
 
 export function Assignments({ assignments, setAssignments }: any) {
-  const[assignmentList, setAssignmentList] = useState([]);
   
   return (
     <section className={styles.assignments}>
@@ -21,17 +19,18 @@ export function Assignments({ assignments, setAssignments }: any) {
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>{countCompleted(assignments)} of {assignments.length}</span>
+          <span>{countCompleted({assignments})} of {assignments.length}</span>
         </div>
       </header>
-
+      {/* Do I need to pass index twice, once as key and once as a separate value? Access key some other way? */}
       <div className={styles.list}>
-        {assignments?.map((i: any, index: any) =>
+        {assignments?.map((a: any, index: any) =>
           <Assignment key={index}
-            title={i.title}
+            index={index}
+            title={a.title}
             assignments={assignments}
             setAssignments={setAssignments}
-            completed={i.completed} />)}
+            completed={a.completed} />)}
       </div>
     </section>
   );

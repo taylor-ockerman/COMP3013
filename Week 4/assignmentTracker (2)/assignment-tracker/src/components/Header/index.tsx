@@ -22,6 +22,7 @@ export function Header({ buttonClickable, setButtonClickable, setAssignments, as
       <form className={styles.newAssignmentForm}>
         <input placeholder="Add a new assignment"
           type="text"
+          //how to handle enter key input?
           onChange={(input) => handleInput(setButtonClickable, input.target.value, setInputText)} />
         <button type="button"
           style={buttonClickable}

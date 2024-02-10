@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 function App() {
 
-  const [assignments, setAssignments] = useState([]);
+  const[assignments, setAssignments] = useState<{ title: string, completed: boolean }[]>([]);
   
   return (
     <>

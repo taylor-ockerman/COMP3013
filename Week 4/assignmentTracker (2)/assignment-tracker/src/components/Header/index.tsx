@@ -3,7 +3,12 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 import { useState } from 'react'
 
-export function Header({ setAssignments, assignments }: any) {
+type Props = {
+  assignments:{ title: string, completed: boolean }[],
+  setAssignments: React.Dispatch<React.SetStateAction<{ title: string, completed: boolean }[]>>
+}
+
+export function Header({ setAssignments, assignments }: Props) {
   const [inputText, setInputText] = useState("");
   const [ isDisabled, setIsDisabled] = useState({ cursor: "not-allowed", disabled: true });
   return (
